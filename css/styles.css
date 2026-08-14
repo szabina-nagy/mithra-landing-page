@@ -1,9 +1,4 @@
 /* =========================================================
-   MITHRA LANDING PAGE
-   ========================================================= */
-
-
-/* =========================================================
    1. DESIGN TOKENS
    ========================================================= */
 
@@ -18,6 +13,7 @@
   /* Text */
   --text-primary: #102A56;
   --text-on-dark: #FFFFFF;
+  --text-muted: rgba(16, 42, 86, 0.72);
 
   /* Borders */
   --border-blue: #246BFE;
@@ -27,7 +23,7 @@
   --radius-small: 8px;
   --radius-medium: 16px;
   --radius-large: 24px;
-  --radius-pill: 999px;
+  --radius-button: 30px 30px 0 30px;
 
   /* Spacing */
   --space-1: 4px;
@@ -68,8 +64,10 @@ body {
   margin: 0;
   background: var(--color-white);
   color: var(--text-primary);
+
   font-family: "Atkinson Hyperlegible", Arial, sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -102,10 +100,10 @@ a {
 h1,
 h2,
 h3,
-.nav-links,
-.nav-cta,
+.brand-name,
 .button,
-.brand-name {
+.nav-links,
+.nav-cta {
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -118,27 +116,40 @@ p {
 
 h1 {
   margin-bottom: var(--space-5);
+
   font-size: 52px;
-  line-height: 1.1;
   font-weight: 700;
+  line-height: 1.1;
 }
 
 h2 {
   margin-bottom: var(--space-4);
+
   font-size: 40px;
+  font-weight: 700;
   line-height: 1.15;
-  font-weight: 600;
 }
 
 h3 {
   margin-bottom: var(--space-2);
+
   font-size: 24px;
+  font-weight: 700;
   line-height: 1.2;
-  font-weight: 600;
 }
 
 p {
   margin-bottom: var(--space-4);
+}
+
+.helper-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.mini-helper-text {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 
@@ -148,12 +159,16 @@ p {
 
 .visually-hidden {
   position: absolute;
+
   width: 1px;
   height: 1px;
+
   padding: 0;
   margin: -1px;
+
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+
   white-space: nowrap;
   border: 0;
 }
@@ -168,18 +183,68 @@ textarea:focus-visible {
 
 
 /* =========================================================
-   5. HEADER / NAVIGATION
+   5. BUTTONS
+   ========================================================= */
+
+.button {
+  min-height: 50px;
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  /* Mithra button shape */
+  border-radius: var(--radius-button);
+  
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(0.94);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button-primary {
+  background: var(--color-magenta);
+  color: var(--color-white);
+
+  box-shadow: var(--shadow-button);
+}
+
+.button-secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+
+/* =========================================================
+   6. HEADER / NAVIGATION
    ========================================================= */
 
 .site-header {
   background: var(--color-primary-navy);
   color: var(--color-white);
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 }
 
 .main-nav {
   width: min(calc(100% - 48px), var(--content-width));
   min-height: 72px;
+
   margin-inline: auto;
 
   display: flex;
@@ -194,12 +259,12 @@ textarea:focus-visible {
 }
 
 .nav-links {
+  margin: 0 0 0 auto;
+  padding: 0;
+
   display: flex;
   align-items: center;
   gap: 40px;
-
-  margin: 0 0 0 auto;
-  padding: 0;
 
   list-style: none;
 
@@ -214,6 +279,7 @@ textarea:focus-visible {
 
 .nav-links a::after {
   content: "";
+
   position: absolute;
   left: 0;
   bottom: 2px;
@@ -222,6 +288,7 @@ textarea:focus-visible {
   height: 2px;
 
   background: var(--color-white);
+
   transition: width 0.2s ease;
 }
 
@@ -241,7 +308,7 @@ textarea:focus-visible {
   background: var(--color-secondary);
   color: var(--color-white);
 
-  border-radius: var(--radius-pill);
+   border-radius: var(--radius-button);
 
   font-size: 16px;
   font-weight: 600;
@@ -257,6 +324,8 @@ textarea:focus-visible {
   width: 44px;
   height: 44px;
 
+  padding: 0;
+
   border: 0;
   background: transparent;
   color: var(--color-white);
@@ -269,7 +338,7 @@ textarea:focus-visible {
 
 
 /* =========================================================
-   6. GENERAL SECTION LAYOUT
+   7. GENERAL PAGE SECTIONS
    ========================================================= */
 
 .stats-section,
@@ -294,17 +363,13 @@ textarea:focus-visible {
   border-top: 1px solid var(--border-muted);
 }
 
-.section-intro {
-  max-width: 100%;
-}
-
 .section-intro > p {
   max-width: 900px;
 }
 
 
 /* =========================================================
-   7. HERO
+   8. HERO
    ========================================================= */
 
 .hero {
@@ -332,12 +397,8 @@ textarea:focus-visible {
   margin-bottom: var(--space-1);
 
   font-size: 34px;
-  line-height: 1.1;
   font-weight: 700;
-}
-
-.hero h1 {
-  margin-bottom: var(--space-5);
+  line-height: 1.1;
 }
 
 .hero-content > p:not(.brand-name):not(.reassurance) {
@@ -353,50 +414,6 @@ textarea:focus-visible {
   gap: var(--space-4);
 }
 
-.button {
-  min-height: 50px;
-  padding: 0 28px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 0;
-  border-radius: var(--radius-pill);
-
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.15s ease,
-    filter 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.button:hover {
-  filter: brightness(0.94);
-  transform: translateY(-1px);
-}
-
-.button:active {
-  transform: translateY(0);
-}
-
-.button-primary {
-  background: var(--color-magenta);
-  color: var(--color-white);
-
-  box-shadow: var(--shadow-button);
-}
-
-.button-secondary {
-  background: var(--color-secondary);
-  color: var(--color-white);
-}
-
 .reassurance {
   margin-top: var(--space-6);
   margin-bottom: 0;
@@ -407,19 +424,20 @@ textarea:focus-visible {
 
 .hero-image {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-image img {
   width: min(100%, 520px);
   max-height: 430px;
+
   object-fit: contain;
 }
 
 
 /* =========================================================
-   8. STATISTICS
+   9. STATISTICS
    ========================================================= */
 
 .stats-grid {
@@ -448,6 +466,7 @@ textarea:focus-visible {
 .stat-card img {
   width: 42px;
   height: 42px;
+
   margin-bottom: var(--space-2);
 }
 
@@ -458,13 +477,13 @@ textarea:focus-visible {
 
   font-family: "Josefin Sans", sans-serif;
   font-size: 40px;
-  line-height: 1;
   font-weight: 700;
+  line-height: 1;
 }
 
 .stat-card p:last-child {
-  margin-bottom: 0;
   max-width: 250px;
+  margin-bottom: 0;
 }
 
 .source-text {
@@ -474,12 +493,12 @@ textarea:focus-visible {
   text-align: center;
   font-size: 14px;
 
-  opacity: 0.8;
+  color: var(--text-muted);
 }
 
 
 /* =========================================================
-   9. HOW MITHRA HELPS
+   10. FEATURES
    ========================================================= */
 
 .features-section h2 {
@@ -533,13 +552,10 @@ textarea:focus-visible {
 
 
 /* =========================================================
-   10. SCAM CHECKER
+   11. SCAM CHECKER
    ========================================================= */
 
 .checker-section {
-  margin-top: 0;
-  margin-bottom: 0;
-
   padding: 32px;
 
   display: grid;
@@ -568,12 +584,12 @@ textarea:focus-visible {
   margin: 0 0 var(--space-4);
   padding: 0;
 
-  border: 0;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
+
+  border: 0;
 }
 
 .checker-options label {
@@ -590,7 +606,9 @@ textarea:focus-visible {
 
 .checker-options label:has(input:checked) {
   background: var(--color-white);
+
   box-shadow: 0 0 0 1px var(--color-primary-navy);
+
   font-weight: 700;
 }
 
@@ -646,7 +664,7 @@ textarea::placeholder {
 
 
 /* =========================================================
-   11. COMMON TACTICS
+   12. COMMON TACTICS
    ========================================================= */
 
 .tactics-grid {
@@ -691,16 +709,16 @@ textarea::placeholder {
 
 
 /* =========================================================
-   12. FINAL CTA
+   13. FINAL CTA
    ========================================================= */
 
 .final-cta {
-  padding-block: 48px;
+  padding-block: var(--space-7);
 
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 64px;
+  gap: var(--space-8);
 }
 
 .final-cta > div {
@@ -721,7 +739,7 @@ textarea::placeholder {
 
 
 /* =========================================================
-   13. FOOTER
+   14. FOOTER
    ========================================================= */
 
 .site-footer {
@@ -774,6 +792,11 @@ textarea::placeholder {
   text-underline-offset: 4px;
 }
 
+.disabled-link {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .copyright {
   grid-column: 1 / -1;
 
@@ -788,14 +811,12 @@ textarea::placeholder {
 
 
 /* =========================================================
-   14. TABLET / MOBILE
+   15. MOBILE
    ========================================================= */
 
 @media (max-width: 768px) {
 
-  body {
-    font-size: 18px;
-  }
+  /* Typography */
 
   h1 {
     font-size: 30px;
@@ -810,6 +831,11 @@ textarea::placeholder {
   h3 {
     font-size: 20px;
     line-height: 1.2;
+  }
+
+  .button {
+    min-height: 54px;
+    font-size: 20px;
   }
 
 
@@ -854,10 +880,7 @@ textarea::placeholder {
   /* Hero */
 
   .hero {
-    padding:
-      32px
-      20px
-      40px;
+    padding: 32px 20px 40px;
 
     grid-template-columns: 1fr;
     gap: 28px;
@@ -878,14 +901,8 @@ textarea::placeholder {
   }
 
   .hero-actions {
-    max-width: none;
     width: 100%;
-  }
-
-  .button {
-    min-height: 54px;
-
-    font-size: 20px;
+    max-width: none;
   }
 
   .hero-actions .button {
@@ -893,13 +910,15 @@ textarea::placeholder {
   }
 
   .reassurance {
-    font-size: 14px;
     margin-top: var(--space-5);
+
+    font-size: 14px;
   }
 
   .hero-image img {
     width: min(100%, 360px);
     max-height: none;
+
     margin-inline: auto;
   }
 
@@ -941,7 +960,7 @@ textarea::placeholder {
   }
 
 
-  /* Checker */
+  /* Scam checker */
 
   .checker-section {
     padding: 24px 20px;
@@ -963,10 +982,6 @@ textarea::placeholder {
 
   textarea {
     min-height: 110px;
-  }
-
-  .privacy-note {
-    font-size: 14px;
   }
 
 
@@ -1032,10 +1047,6 @@ textarea::placeholder {
     font-size: 14px;
   }
 
-  .site-footer nav:last-of-type {
-    display: none;
-  }
-
   .copyright {
     font-size: 12px;
   }
@@ -1043,30 +1054,10 @@ textarea::placeholder {
 
 
 /* =========================================================
-   15. VERY SMALL MOBILE
+   16. SMALL MOBILE
    ========================================================= */
 
 @media (max-width: 390px) {
-
-  .hero,
-  .stats-section,
-  .features-section,
-  .checker-section,
-  .tactics-section,
-  .final-cta {
-    width: 100%;
-  }
-
-  .stats-section,
-  .features-section,
-  .tactics-section,
-  .final-cta {
-    padding-inline: 20px;
-  }
-
-  .checker-section {
-    width: calc(100% - 20px);
-  }
 
   .hero {
     padding-inline: 20px;
@@ -1075,11 +1066,23 @@ textarea::placeholder {
   .main-nav {
     width: calc(100% - 32px);
   }
+
+  .stats-section,
+  .features-section,
+  .tactics-section,
+  .final-cta {
+    width: 100%;
+    padding-inline: 20px;
+  }
+
+  .checker-section {
+    width: calc(100% - 20px);
+  }
 }
 
 
 /* =========================================================
-   16. REDUCED MOTION
+   17. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1093,12 +1096,4 @@ textarea::placeholder {
   *::after {
     transition: none !important;
   }
-}
-
-/* =========================================================
-   17. DISABLED LINK
-   ========================================================= */
-.disabled-link {
-  opacity: 0.5;
-  cursor: default;
 }
