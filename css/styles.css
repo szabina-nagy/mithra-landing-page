@@ -1,0 +1,1104 @@
+/* =========================================================
+   MITHRA LANDING PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  /* Brand colours */
+  --color-light-neutral: #CFE1F0;
+  --color-secondary: #246BFE;
+  --color-primary-navy: #102A56;
+  --color-magenta: #C40043;
+  --color-white: #FFFFFF;
+
+  /* Text */
+  --text-primary: #102A56;
+  --text-on-dark: #FFFFFF;
+
+  /* Borders */
+  --border-blue: #246BFE;
+  --border-muted: rgba(16, 42, 86, 0.35);
+
+  /* Radius */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+  --radius-pill: 999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+
+  /* Layout */
+  --content-width: 1200px;
+
+  /* Shadows */
+  --shadow-small: 0 4px 10px rgba(16, 42, 86, 0.12);
+  --shadow-button: 0 4px 8px rgba(16, 42, 86, 0.18);
+}
+
+
+/* =========================================================
+   2. RESET / BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--text-primary);
+  font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   3. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+.nav-links,
+.nav-cta,
+.button,
+.brand-name {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: var(--space-5);
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: var(--space-4);
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h3 {
+  margin-bottom: var(--space-2);
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--space-4);
+}
+
+
+/* =========================================================
+   4. ACCESSIBILITY
+   ========================================================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   5. HEADER / NAVIGATION
+   ========================================================= */
+
+.site-header {
+  background: var(--color-primary-navy);
+  color: var(--color-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.main-nav {
+  width: min(calc(100% - 48px), var(--content-width));
+  min-height: 72px;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.logo-link img {
+  width: 150px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  margin: 0 0 0 auto;
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  position: relative;
+  padding-block: 8px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-white);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
+}
+
+.nav-cta {
+  min-height: 44px;
+  padding: 0 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-secondary);
+  color: var(--color-white);
+
+  border-radius: var(--radius-pill);
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-cta:hover {
+  filter: brightness(0.92);
+}
+
+.mobile-menu-button {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   6. GENERAL SECTION LAYOUT
+   ========================================================= */
+
+.stats-section,
+.features-section,
+.checker-section,
+.tactics-section,
+.final-cta {
+  width: min(calc(100% - 48px), var(--content-width));
+  margin-inline: auto;
+}
+
+.stats-section,
+.features-section,
+.tactics-section {
+  padding-block: var(--space-8);
+}
+
+.features-section,
+.checker-section,
+.tactics-section,
+.final-cta {
+  border-top: 1px solid var(--border-muted);
+}
+
+.section-intro {
+  max-width: 100%;
+}
+
+.section-intro > p {
+  max-width: 900px;
+}
+
+
+/* =========================================================
+   7. HERO
+   ========================================================= */
+
+.hero {
+  padding:
+    var(--space-7)
+    max(24px, calc((100vw - var(--content-width)) / 2))
+    var(--space-8);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 72px;
+
+  background: var(--color-primary-navy);
+  color: var(--color-white);
+
+  border-radius: 0 0 48px 48px;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.brand-name {
+  margin-bottom: var(--space-1);
+
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-5);
+}
+
+.hero-content > p:not(.brand-name):not(.reassurance) {
+  max-width: 430px;
+}
+
+.hero-actions {
+  max-width: 360px;
+  margin-top: var(--space-5);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.button {
+  min-height: 50px;
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: var(--radius-pill);
+
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.button:hover {
+  filter: brightness(0.94);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button-primary {
+  background: var(--color-magenta);
+  color: var(--color-white);
+
+  box-shadow: var(--shadow-button);
+}
+
+.button-secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.reassurance {
+  margin-top: var(--space-6);
+  margin-bottom: 0;
+
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: min(100%, 520px);
+  max-height: 430px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   8. STATISTICS
+   ========================================================= */
+
+.stats-grid {
+  margin-top: var(--space-6);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.stat-card {
+  min-height: 180px;
+  padding: 28px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid var(--border-blue);
+  border-radius: var(--radius-large);
+
+  text-align: center;
+}
+
+.stat-card img {
+  width: 42px;
+  height: 42px;
+  margin-bottom: var(--space-2);
+}
+
+.stat-number {
+  margin: 0 0 var(--space-2);
+
+  color: var(--color-secondary);
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.stat-card p:last-child {
+  margin-bottom: 0;
+  max-width: 250px;
+}
+
+.source-text {
+  margin-top: var(--space-5);
+  margin-bottom: 0;
+
+  text-align: center;
+  font-size: 14px;
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   9. HOW MITHRA HELPS
+   ========================================================= */
+
+.features-section h2 {
+  margin-bottom: var(--space-2);
+}
+
+.features-section .section-intro h3 {
+  margin-bottom: var(--space-3);
+}
+
+.features-grid {
+  margin-top: var(--space-6);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border: 2px solid var(--border-blue);
+  border-radius: var(--radius-large);
+
+  overflow: hidden;
+}
+
+.feature-card {
+  min-width: 0;
+  padding: 28px 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.feature-card + .feature-card {
+  border-left: 1px solid var(--border-muted);
+}
+
+.feature-card > img {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 auto;
+}
+
+.feature-card h3 {
+  color: var(--color-secondary);
+  font-size: 30px;
+}
+
+.feature-card p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   10. SCAM CHECKER
+   ========================================================= */
+
+.checker-section {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  padding: 32px;
+
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+
+  background: var(--color-light-neutral);
+
+  border: 1.5px solid var(--color-primary-navy);
+  border-radius: var(--radius-large);
+}
+
+.checker-intro h2 {
+  margin-bottom: var(--space-4);
+}
+
+.checker-intro p {
+  margin-bottom: 0;
+}
+
+.checker-form {
+  min-width: 0;
+}
+
+.checker-options {
+  margin: 0 0 var(--space-4);
+  padding: 0;
+
+  border: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.checker-options label {
+  padding: 7px 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  border-radius: var(--radius-pill);
+
+  cursor: pointer;
+}
+
+.checker-options label:has(input:checked) {
+  background: var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-primary-navy);
+  font-weight: 700;
+}
+
+.checker-options input[type="radio"] {
+  width: 18px;
+  height: 18px;
+
+  accent-color: var(--color-secondary);
+}
+
+.form-field {
+  margin-bottom: var(--space-4);
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: var(--space-2);
+
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+
+  padding: 16px;
+
+  resize: vertical;
+
+  color: var(--text-primary);
+  background: var(--color-white);
+
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--radius-small);
+}
+
+textarea::placeholder {
+  color: rgba(16, 42, 86, 0.55);
+}
+
+.checker-submit {
+  width: 100%;
+
+  background: var(--color-secondary);
+}
+
+.privacy-note {
+  margin: var(--space-3) 0 0;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   11. COMMON TACTICS
+   ========================================================= */
+
+.tactics-grid {
+  margin-top: var(--space-6);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border: 2px solid var(--border-blue);
+  border-radius: var(--radius-large);
+
+  overflow: hidden;
+}
+
+.tactic-card {
+  padding: 28px 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.tactic-card + .tactic-card {
+  border-left: 1px solid var(--border-muted);
+}
+
+.tactic-card > img {
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 auto;
+}
+
+.tactic-card h3 {
+  color: var(--color-magenta);
+  font-size: 30px;
+}
+
+.tactic-card p {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   12. FINAL CTA
+   ========================================================= */
+
+.final-cta {
+  padding-block: 48px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 64px;
+}
+
+.final-cta > div {
+  max-width: 600px;
+}
+
+.final-cta h2 {
+  margin-bottom: var(--space-3);
+}
+
+.final-cta p {
+  margin-bottom: 0;
+}
+
+.final-cta .button {
+  min-width: 320px;
+}
+
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding:
+    48px
+    max(24px, calc((100vw - var(--content-width)) / 2))
+    24px;
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
+
+  background: var(--color-primary-navy);
+  color: var(--color-white);
+}
+
+.footer-brand img {
+  width: 160px;
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand p {
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand p:last-child {
+  max-width: 240px;
+}
+
+.site-footer nav h2 {
+  margin-bottom: var(--space-3);
+
+  font-size: 24px;
+}
+
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.site-footer li + li {
+  margin-top: var(--space-2);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.copyright {
+  grid-column: 1 / -1;
+
+  margin: var(--space-3) 0 0;
+  padding-top: var(--space-3);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   14. TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+
+  /* Header */
+
+  .main-nav {
+    width: calc(100% - 40px);
+    min-height: 64px;
+  }
+
+  .logo-link img {
+    width: 120px;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+
+  /* General sections */
+
+  .stats-section,
+  .features-section,
+  .checker-section,
+  .tactics-section,
+  .final-cta {
+    width: calc(100% - 40px);
+  }
+
+  .stats-section,
+  .features-section,
+  .tactics-section {
+    padding-block: 56px;
+  }
+
+
+  /* Hero */
+
+  .hero {
+    padding:
+      32px
+      20px
+      40px;
+
+    grid-template-columns: 1fr;
+    gap: 28px;
+
+    border-radius: 0 0 28px 28px;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .hero-content > p:not(.brand-name):not(.reassurance) {
+    max-width: none;
+  }
+
+  .hero-actions {
+    max-width: none;
+    width: 100%;
+  }
+
+  .button {
+    min-height: 54px;
+
+    font-size: 20px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .reassurance {
+    font-size: 14px;
+    margin-top: var(--space-5);
+  }
+
+  .hero-image img {
+    width: min(100%, 360px);
+    max-height: none;
+    margin-inline: auto;
+  }
+
+
+  /* Statistics */
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+
+  /* Features */
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 24px 20px;
+  }
+
+  .feature-card + .feature-card {
+    border-left: 0;
+    border-top: 1px solid var(--border-muted);
+  }
+
+  .feature-card h3 {
+    font-size: 20px;
+  }
+
+
+  /* Checker */
+
+  .checker-section {
+    padding: 24px 20px;
+
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .checker-options {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .checker-options label {
+    width: fit-content;
+    min-height: 38px;
+  }
+
+  textarea {
+    min-height: 110px;
+  }
+
+  .privacy-note {
+    font-size: 14px;
+  }
+
+
+  /* Tactics */
+
+  .tactics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tactic-card {
+    padding: 24px 20px;
+  }
+
+  .tactic-card + .tactic-card {
+    border-left: 0;
+    border-top: 1px solid var(--border-muted);
+  }
+
+  .tactic-card h3 {
+    font-size: 20px;
+  }
+
+
+  /* Final CTA */
+
+  .final-cta {
+    padding-block: 48px;
+
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    text-align: center;
+  }
+
+  .final-cta .button {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* Footer */
+
+  .site-footer {
+    padding: 40px 20px 20px;
+
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .footer-brand img {
+    width: 130px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+
+  .site-footer nav h2 {
+    font-size: 18px;
+  }
+
+  .site-footer nav {
+    font-size: 14px;
+  }
+
+  .site-footer nav:last-of-type {
+    display: none;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   15. VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .hero,
+  .stats-section,
+  .features-section,
+  .checker-section,
+  .tactics-section,
+  .final-cta {
+    width: 100%;
+  }
+
+  .stats-section,
+  .features-section,
+  .tactics-section,
+  .final-cta {
+    padding-inline: 20px;
+  }
+
+  .checker-section {
+    width: calc(100% - 20px);
+  }
+
+  .hero {
+    padding-inline: 20px;
+  }
+
+  .main-nav {
+    width: calc(100% - 32px);
+  }
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   17. DISABLED LINK
+   ========================================================= */
+.disabled-link {
+  opacity: 0.5;
+  cursor: default;
+}
