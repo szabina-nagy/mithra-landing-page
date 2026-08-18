@@ -474,6 +474,7 @@ textarea:focus-visible {
   gap: 48px;
 }
 
+
 .stat-card {
   min-height: 180px;
   padding: 28px 24px;
@@ -490,8 +491,8 @@ textarea:focus-visible {
 }
 
 .stat-card img {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
 
   margin-bottom: var(--space-2);
 }
@@ -519,7 +520,7 @@ textarea:focus-visible {
   text-align: center;
   font-size: 14px;
 
-  color: var(--text-muted);
+  color: var(--color-primary-navy);
 }
 
 
