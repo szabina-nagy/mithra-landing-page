@@ -243,7 +243,7 @@ textarea:focus-visible {
 
 .main-nav {
   width: min(calc(100% - 48px), var(--content-width));
-  min-height: 72px;
+  height: 72px;
 
   margin-inline: auto;
 
@@ -253,9 +253,18 @@ textarea:focus-visible {
   gap: 32px;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .logo-link img {
-  width: 150px;
-  height: auto;
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transform: translateY(-3px);
 }
 
 .nav-links {
@@ -336,6 +345,17 @@ textarea:focus-visible {
   cursor: pointer;
 }
 
+.logo-wordmark {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+
+  color: var(--color-white);
+}
 
 /* =========================================================
    7. GENERAL PAGE SECTIONS
@@ -841,13 +861,49 @@ textarea::placeholder {
 
   /* Header */
 
+    .main-nav {
+    width: calc(100% - 40px);
+    min-height: 64px;
+  }
+
+.logo-link {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+}
+
+.logo-link img {
+  display: block;
+  width: auto;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+
+
+
+@media (max-width: 768px) {
   .main-nav {
     width: calc(100% - 40px);
     min-height: 64px;
   }
 
   .logo-link img {
-    width: 120px;
+    height: 28px;
   }
 
   .nav-links,
@@ -858,6 +914,7 @@ textarea::placeholder {
   .mobile-menu-button {
     display: block;
   }
+}
 
 
   /* General sections */
