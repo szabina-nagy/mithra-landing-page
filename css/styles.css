@@ -187,7 +187,7 @@ textarea:focus-visible {
    ========================================================= */
 
 .button {
-  min-height: 50px;
+  min-height: 48px;
   padding: 0 28px;
 
   display: inline-flex;
@@ -384,7 +384,8 @@ textarea:focus-visible {
 }
 
 .section-intro > p {
-  max-width: 900px;
+  max-width: none;
+  width: 100%;
 }
 
 
@@ -394,14 +395,14 @@ textarea:focus-visible {
 
 .hero {
   padding:
-    var(--space-7)
+  32px
     max(24px, calc((100vw - var(--content-width)) / 2))
-    var(--space-8);
+    40px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 72px;
+  gap: 56px;
 
   background: var(--color-primary-navy);
   color: var(--color-white);
@@ -410,13 +411,13 @@ textarea:focus-visible {
 }
 
 .hero-content {
-  max-width: 520px;
+  max-width: 620px;
 }
 
 .brand-name {
   margin-bottom: var(--space-1);
 
-  font-size: 34px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 1.1;
 }
@@ -426,7 +427,7 @@ textarea:focus-visible {
 }
 
 .hero-actions {
-  max-width: 360px;
+  max-width: 650px;
   margin-top: var(--space-5);
 
   display: flex;
@@ -435,7 +436,12 @@ textarea:focus-visible {
 }
 
 .reassurance {
-  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
   margin-bottom: 0;
 
   font-size: 16px;
@@ -449,8 +455,8 @@ textarea:focus-visible {
 }
 
 .hero-image img {
-  width: min(100%, 520px);
-  max-height: 430px;
+  width: min(100%, 470px);
+  max-height: 470px;
 
   object-fit: contain;
 }
@@ -949,6 +955,10 @@ textarea::placeholder {
     max-width: none;
   }
 
+  .hero h1 {
+  max-width: 560px;
+}
+
   .brand-name {
     font-size: 24px;
   }
@@ -959,21 +969,35 @@ textarea::placeholder {
 
   .hero-actions {
     width: 100%;
-    max-width: none;
+    max-width: 330px;
+    gap: 12px;
   }
 
   .hero-actions .button {
     width: 100%;
   }
 
-  .reassurance {
-    margin-top: var(--space-5);
+  
+.reassurance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
 
-    font-size: 14px;
-  }
+.reassurance img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+}
+
+.reassurance span {
+  display: inline;
+}
 
   .hero-image img {
-    width: min(100%, 360px);
+    width: min(100%, 520px);
     max-height: none;
 
     margin-inline: auto;
