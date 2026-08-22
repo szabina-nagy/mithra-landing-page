@@ -718,15 +718,23 @@ textarea::placeholder {
 }
 
 .tactic-card {
-  padding: 28px 24px;
-
+  padding: 28px 32px;
+position: relative;
   display: flex;
   align-items: flex-start;
   gap: var(--space-4);
 }
 
-.tactic-card + .tactic-card {
-  border-left: 1px solid var(--border-muted);
+.tactic-card + .tactic-card::before {
+  content: "";
+
+  position: absolute;
+  left: -12px;
+  top: 20%;
+  bottom: 20%;
+
+  width: 1px;
+  background: var(--border-muted);
 }
 
 .tactic-card > img {
@@ -1093,23 +1101,46 @@ textarea::placeholder {
 
   /* Tactics */
 
-  .tactics-grid {
-    grid-template-columns: 1fr;
-  }
+/* Tactics */
 
-  .tactic-card {
-    padding: 24px 20px;
-  }
+.tactics-grid {
+  grid-template-columns: 1fr;
+}
 
-  .tactic-card + .tactic-card {
-    border-left: 0;
-    border-top: 1px solid var(--border-muted);
-  }
+.tactic-card {
+  position: relative;
+  min-width: 0;
+  padding: 28px 32px;
 
-  .tactic-card h3 {
-    font-size: 20px;
-  }
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
 
+.tactic-card + .tactic-card {
+  border: 0;
+}
+
+.tactic-card + .tactic-card::before {
+  content: "";
+  display: block;
+  position: absolute;
+
+  top: 0;
+  bottom: auto;
+
+  left: 15%;
+  right: 15%;
+
+  width: auto;
+  height: 1px;
+
+  background: var(--border-muted);
+}
+
+.tactic-card h3 {
+  font-size: 20px;
+}
 
   /* Final CTA */
 
