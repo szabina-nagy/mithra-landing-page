@@ -377,8 +377,6 @@ textarea:focus-visible {
 }
 
 .features-section,
-.checker-section,
-.tactics-section,
 .final-cta {
   border-top: 1px solid var(--border-muted);
 }
@@ -606,6 +604,15 @@ textarea:focus-visible {
   border-radius: var(--radius-large);
 }
 
+.features-section {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.checker-section {
+  margin-top: 48px;
+}
+
 .checker-intro h2 {
   margin-bottom: var(--space-4);
 }
@@ -631,13 +638,13 @@ textarea:focus-visible {
 }
 
 .checker-options label {
-  padding: 7px 10px;
+  padding: 10px 16px;
 
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
 
-  border-radius: var(--radius-pill);
+  border-radius: 999px;
 
   cursor: pointer;
 }
@@ -700,10 +707,43 @@ textarea::placeholder {
   font-size: 14px;
 }
 
+.checker-sample-messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: var(--space-3);
+
+  font-size: 14px;
+}
+
+.checker-sample-messages img {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
 
 /* =========================================================
    12. COMMON TACTICS
    ========================================================= */
+
+   .tactics-section {
+  position: relative;
+  margin-top: 64px;
+}
+
+.tactics-section::before {
+  content: "";
+  position: absolute;
+
+  top: -8px;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+  background: var(--border-muted);
+}
 
 .tactics-grid {
   margin-top: var(--space-6);
@@ -1092,6 +1132,7 @@ position: relative;
   .checker-options label {
     width: fit-content;
     min-height: 38px;
+    border-radius: 999px;
   }
 
   textarea {
