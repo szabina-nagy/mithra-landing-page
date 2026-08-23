@@ -842,13 +842,39 @@ position: relative;
   color: var(--color-white);
 }
 
-.footer-brand img {
-  width: 160px;
-  margin-bottom: var(--space-3);
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer-logo img {
+  width: 180px;
+  height: auto;
+}
+
+.footer-logo span {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-white);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-brand p {
   margin-bottom: var(--space-3);
+}
+
+.footer-brand > p {
+  margin: 0;
+  max-width: 240px;
 }
 
 .footer-brand p:last-child {
@@ -895,6 +921,36 @@ position: relative;
   font-size: 14px;
 }
 
+.footer-logo,
+.footer-product,
+.footer-about {
+  position: relative;
+}
+
+.footer-product::before,
+.footer-about::before {
+  content: "";
+  position: absolute;
+
+  left: -24px;
+  top: 10%;
+  bottom: 10%;
+
+  width: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.footer-product a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-product a img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
 
 /* =========================================================
    15. MOBILE
@@ -980,6 +1036,34 @@ position: relative;
   .mobile-menu-button {
     display: block;
   }
+  @media (max-width: 768px) {
+
+  .site-footer {
+    padding: 40px 20px 20px;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .footer-about {
+    display: none;
+  }
+
+  .footer-product::before,
+  .footer-about::before {
+    display: none;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+  .footer-product a img {
+    display: none;
+  }
+}
+}
 }
 
 
@@ -1140,8 +1224,6 @@ position: relative;
   }
 
 
-  /* Tactics */
-
 /* Tactics */
 
 .tactics-grid {
@@ -1231,6 +1313,7 @@ position: relative;
 }
 
 
+
 /* =========================================================
    16. SMALL MOBILE
    ========================================================= */
@@ -1256,6 +1339,8 @@ position: relative;
   .checker-section {
     width: calc(100% - 20px);
   }
+
+  
 }
 
 
