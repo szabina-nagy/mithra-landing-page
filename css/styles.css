@@ -668,6 +668,15 @@ textarea:focus-visible {
   accent-color: var(--color-secondary);
 }
 
+.demo-note {
+
+  margin: var(--space-3) 0 0;
+text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 .form-field {
   margin-bottom: var(--space-4);
 }
@@ -1042,7 +1051,7 @@ position: relative;
   .mobile-menu.is-open {
     display: flex;
   }
-  
+
   .logo-link img {
     height: 28px;
   }
