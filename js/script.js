@@ -138,19 +138,20 @@ function showLowerRiskResult() {
 
   resultContainer.innerHTML = `
     <div class="result-card result-success">
-      <h3>No obvious warning signs found</h3>
+      <h3 class="result-success-title">
+        <img
+          src="assets/icons/check-blue.svg"
+          alt=""
+          aria-hidden="true"
+        >
+        <span>No obvious warning signs found</span>
+      </h3>
 
       <p>
         This does not guarantee that the message is safe.
-        Always verify the sender if you are uncertain.
+        Always verify the sender if you are uncertain. If in doubt, verify the sender by contacting them through trusted channels.
       </p>
 
-      <button
-        type="button"
-        class="button button-secondary reset-checker"
-      >
-        Check another message
-      </button>
     </div>
   `;
 
