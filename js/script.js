@@ -71,9 +71,12 @@ function showLoading() {
     <span>Checking this message...</span>
   `;
 
+  document.querySelector(".demo-note").classList.add("is-hidden");
+
   resultContainer.innerHTML = `
     <p class="loading-warning">
-      Do not click or respond yet!
+    <img  src="assets/icons/warning-magenta.svg" alt="" aria-hidden="true">
+      <span>Do not click or respond yet!</span>
     </p>
   `;
 }
@@ -82,6 +85,8 @@ function restoreCheckerButton() {
   checkerButton.disabled = false;
   checkerButton.classList.remove("is-loading");
   checkerButton.innerHTML = "Check this message";
+
+  document.querySelector(".demo-note").classList.remove("is-hidden");
 }
 
 function showSuspiciousResult(detectedWarnings) {
@@ -124,7 +129,7 @@ function showSuspiciousResult(detectedWarnings) {
 
 function showLowerRiskResult() {
   restoreCheckerButton();
-  
+
   resultContainer.innerHTML = `
     <div class="result-card result-success">
       <h3>No obvious warning signs found</h3>

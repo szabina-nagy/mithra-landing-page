@@ -632,7 +632,12 @@ textarea:focus-visible {
 
 
 .loading-warning {
-  margin: var(--space-4) 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin: 16px 0 0;
 
   text-align: center;
 
@@ -641,6 +646,12 @@ textarea:focus-visible {
   font-weight: 700;
 
   color: var(--color-magenta);
+}
+.loading-warning img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 .checker-options {
@@ -689,6 +700,10 @@ text-align: center;
   font-size: 14px;
   font-style: italic;
   color: var(--text-muted);
+}
+
+.demo-note.is-hidden {
+  display: none;
 }
 
 .form-field {
@@ -860,7 +875,7 @@ position: relative;
 /* loading states */
 
 .checker-result {
-  margin-top: var(--space-3);
+  margin-top: 0;
 }
 
 .result-loading {
