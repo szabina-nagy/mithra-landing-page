@@ -1,6 +1,7 @@
 const checkerForm = document.querySelector(".checker-form");
 const messageInput = document.querySelector("#message-content");
 const resultContainer = document.querySelector("#checker-result");
+const checkerButton = checkerForm.querySelector("#check-message-button");
 
 const warningPatterns = [
   {
@@ -62,17 +63,32 @@ function showError() {
 }
 
 function showLoading() {
+  checkerButton.disabled = true;
+  checkerButton.classList.add("is-loading");
+
+  checkerButton.innerHTML = `
+    <span class="loading-spinner" aria-hidden="true"></span>
+    <span>Checking this message...</span>
+  `;
+
   resultContainer.innerHTML = `
-    <div class="result-card result-loading">
-      <h3>Checking this message...</h3>
-      <p>Do not click or respond yet.</p>
-    </div>
+    <p class="loading-warning">
+      Do not click or respond yet!
+    </p>
   `;
 }
 
-function showSuspiciousResult(detectedKeywords) {
-  const keywordList = detectedKeywords
-    .map((keyword) => `<li>${keyword}</li>`)
+function restoreCheckerButton() {
+  checkerButton.disabled = false;
+  checkerButton.classList.remove("is-loading");
+  checkerButton.innerHTML = "Check this message";
+}
+
+function showSuspiciousResult(detectedWarnings) {
+  restoreCheckerButton();
+
+  const warningList = detectedWarnings
+    .map((warning) => `<li>${warning}</li>`)
     .join("");
 
   resultContainer.innerHTML = `
@@ -86,7 +102,7 @@ function showSuspiciousResult(detectedKeywords) {
       <h4>Warning signs detected</h4>
 
       <ul>
-        ${keywordList}
+        ${warningList}
       </ul>
 
       <p>
@@ -107,7 +123,9 @@ function showSuspiciousResult(detectedKeywords) {
 }
 
 function showLowerRiskResult() {
-  resultContainer.innerHTML = `s
+  restoreCheckerButton();
+  
+  resultContainer.innerHTML = `
     <div class="result-card result-success">
       <h3>No obvious warning signs found</h3>
 
