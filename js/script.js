@@ -98,7 +98,14 @@ function showSuspiciousResult(detectedWarnings) {
 
   resultContainer.innerHTML = `
     <div class="result-card result-warning">
-      <h3>Possible scam detected</h3>
+      <h3 class="result-warning-title">
+  <img
+    src="assets/icons/alert-magenta.svg"
+    alt=""
+    aria-hidden="true"
+  >
+  <span>Possible scam signs found</span>
+</h3>
 
       <p>
         This message contains warning signs commonly associated with scams.
@@ -110,17 +117,16 @@ function showSuspiciousResult(detectedWarnings) {
         ${warningList}
       </ul>
 
-      <p>
-        This demonstration cannot confirm whether a message is genuine.
-        Verify the sender through an official channel before taking action.
+      <p class="result-question">
+        Did you share any personal information?
       </p>
 
-      <button
-        type="button"
-        class="button button-secondary reset-checker"
-      >
-        Check another message
-      </button>
+     <button
+  type="button"
+  class="button sos-button reset-checker"
+>
+  Start SOS Plan
+</button>
     </div>
   `;
 
