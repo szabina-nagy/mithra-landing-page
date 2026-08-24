@@ -806,6 +806,106 @@ position: relative;
   margin-bottom: 0;
 }
 
+/* loading states */
+
+.result-loading {
+  margin-top: var(--space-3);
+
+  text-align: center;
+}
+
+.result-loading h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin: 0;
+
+  font-size: 16px;
+  color: var(--color-secondary);
+}
+
+.result-loading p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin: var(--space-4) 0 0;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-magenta);
+}
+
+/* lower risk result */
+
+.result-success {
+  margin-top: var(--space-3);
+  padding: 16px;
+
+  border-radius: 24px;
+  background: var(--color-light-neutral);
+}
+
+.result-success h3 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+  color: var(--color-secondary);
+}
+
+.result-success p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* suspicious result */
+
+.result-warning {
+  margin-top: var(--space-3);
+  padding: 16px;
+
+  border-radius: 24px;
+  background: #f5d6e0;
+}
+
+.result-warning h3 {
+  margin: 0 0 12px;
+
+  font-size: 18px;
+  color: var(--color-magenta);
+}
+
+.result-warning h4 {
+  margin: 16px 0 8px;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  color: var(--color-magenta);
+}
+
+.result-warning p {
+  margin: 0 0 12px;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.result-warning ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+
+  font-size: 14px;
+}
+
+.result-warning .button {
+  width: 100%;
+  margin-top: 12px;
+}
 
 /* =========================================================
    13. FINAL CTA
@@ -1084,6 +1184,23 @@ position: relative;
   .copyright {
     grid-column: 1 / -1;
     text-align: center;
+  }
+  
+
+  .result-success,
+  .result-warning {
+    padding: 16px 20px;
+  }
+
+  .result-success h3,
+  .result-warning h3 {
+    font-size: 18px;
+  }
+
+  .result-success p,
+  .result-warning p,
+  .result-warning ul {
+    font-size: 14px;
   }
   
   @media (max-width: 768px) {
