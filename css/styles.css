@@ -327,6 +327,10 @@ textarea:focus-visible {
   filter: brightness(0.92);
 }
 
+.mobile-menu {
+  display: none;
+}
+
 .mobile-menu-button {
   display: none;
 
@@ -1024,6 +1028,21 @@ position: relative;
     min-height: 64px;
   }
 
+   .mobile-menu {
+    width: 100%;
+    padding: 20px;
+
+    flex-direction: column;
+    gap: 16px;
+
+    background: var(--color-primary-navy);
+    color: var(--color-white);
+  }
+
+  .mobile-menu.is-open {
+    display: flex;
+  }
+  
   .logo-link img {
     height: 28px;
   }
