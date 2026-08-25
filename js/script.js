@@ -5,17 +5,44 @@ const checkerButton = checkerForm.querySelector("#check-message-button");
 const menuButton = document.querySelector(".mobile-menu-button");
 const menuCloseButton = document.querySelector(".mobile-menu-close");
 const mobileMenu = document.querySelector("#mobile-menu");
+mobileMenu.inert = true;
 
 function closeMobileMenu() {
   mobileMenu.classList.remove("is-open");
+  mobileMenu.inert = true;
   menuButton.classList.remove("is-hidden");
   menuButton.setAttribute("aria-expanded", "false");
 }
 
+mobileMenu.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab") return;
+
+  const focusableElements = mobileMenu.querySelectorAll(
+    'a[href], button:not([disabled])'
+  );
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  // Shift + Tab on first item → go to last item
+  if (event.shiftKey && document.activeElement === firstElement) {
+    event.preventDefault();
+    lastElement.focus();
+  }
+
+  // Tab on last item → go back to first item
+  else if (!event.shiftKey && document.activeElement === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
+  }
+});
+
 menuButton.addEventListener("click", () => {
   mobileMenu.classList.add("is-open");
+  mobileMenu.inert = false;
   menuButton.classList.add("is-hidden");
   menuButton.setAttribute("aria-expanded", "true");
+  menuCloseButton.focus();
 });
 
 menuCloseButton.addEventListener("click", () => {
