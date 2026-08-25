@@ -2,6 +2,21 @@ const checkerForm = document.querySelector(".checker-form");
 const messageInput = document.querySelector("#message-content");
 const resultContainer = document.querySelector("#checker-result");
 const checkerButton = checkerForm.querySelector("#check-message-button");
+const menuButton = document.querySelector(".mobile-menu-button");
+const menuCloseButton = document.querySelector(".mobile-menu-close");
+const mobileMenu = document.querySelector("#mobile-menu");
+
+menuButton.addEventListener("click", () => {
+  mobileMenu.classList.add("is-open");
+  menuButton.classList.add("is-hidden");
+  menuButton.setAttribute("aria-expanded", "true");
+});
+
+menuCloseButton.addEventListener("click", () => {
+  mobileMenu.classList.remove("is-open");
+  menuButton.classList.remove("is-hidden");
+  menuButton.setAttribute("aria-expanded", "false");
+});
 
 const warningPatterns = [
   {
@@ -15,6 +30,10 @@ const warningPatterns = [
   {
     label: "Request for personal information",
     keywords: ["password", "bank details", "verify account"]
+  },
+  {
+    label: "Unexpected payment or prize",
+    keywords: ["prize", "delivery fee", "payment required"]
   }
 ];
 
