@@ -6,6 +6,12 @@ const menuButton = document.querySelector(".mobile-menu-button");
 const menuCloseButton = document.querySelector(".mobile-menu-close");
 const mobileMenu = document.querySelector("#mobile-menu");
 
+function closeMobileMenu() {
+  mobileMenu.classList.remove("is-open");
+  menuButton.classList.remove("is-hidden");
+  menuButton.setAttribute("aria-expanded", "false");
+}
+
 menuButton.addEventListener("click", () => {
   mobileMenu.classList.add("is-open");
   menuButton.classList.add("is-hidden");
@@ -13,9 +19,20 @@ menuButton.addEventListener("click", () => {
 });
 
 menuCloseButton.addEventListener("click", () => {
-  mobileMenu.classList.remove("is-open");
-  menuButton.classList.remove("is-hidden");
-  menuButton.setAttribute("aria-expanded", "false");
+  closeMobileMenu();
+});
+
+const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+mobileMenuLinks.forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+    closeMobileMenu();
+    menuButton.focus();
+  }
 });
 
 const warningPatterns = [
