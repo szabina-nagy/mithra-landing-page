@@ -125,8 +125,16 @@ function analyseMessage(message) {
 
 function showError() {
   resultContainer.innerHTML = `
-    <div class="result-card result-error">
-      <h3>Please enter a message</h3>
+    <div class="result-error">
+    <div class="result-error-title">
+    <img
+  class="error-icon"
+  src="assets/icons/alert-blue.svg"
+  alt=""
+  aria-hidden="true"
+>
+      <span>Please enter a message</span>
+      </div>
       <p>Paste a suspicious message before checking.</p>
     </div>
   `;

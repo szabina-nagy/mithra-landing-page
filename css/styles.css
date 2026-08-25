@@ -904,6 +904,49 @@ font-family: "Josefin Sans", sans-serif;
   color: var(--color-magenta);
 }
 
+/*result error state*/
+
+.result-error {
+  margin-top: 16px;
+  padding: 16px 18px;
+
+  background: #fff4f7;
+  border: 1px solid var(--color-primary-navy);
+  border-radius: 16px;
+}
+
+.result-error-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 18px;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+
+  color: var(--color-primary-navy);
+}
+
+.error-icon {
+  display: block;
+
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+  transform: translateY(-2px);
+}
+
+.result-error p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.4;
+}
+
 /* lower risk result */
 
 .result-success {
