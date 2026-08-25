@@ -202,9 +202,14 @@ function showSuspiciousResult(detectedWarnings) {
      <button
   type="button"
   class="button sos-button reset-checker"
+  disabled
+  aria-disabled="true"
 >
   Start SOS Plan
 </button>
+<p class="demo-feature-note">
+  SOS Plan is not included in this demonstration.
+</p>
     </div>
   `;
 
