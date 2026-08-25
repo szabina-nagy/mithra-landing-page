@@ -37,6 +37,13 @@ mobileMenu.addEventListener("keydown", (event) => {
   }
 });
 
+messageInput.addEventListener("keydown", (event) => {
+  if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+    event.preventDefault();
+    checkerForm.requestSubmit();
+  }
+});
+
 menuButton.addEventListener("click", () => {
   mobileMenu.classList.add("is-open");
   mobileMenu.inert = false;
