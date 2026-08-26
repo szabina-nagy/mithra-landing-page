@@ -1277,6 +1277,22 @@ font-family: "Josefin Sans", sans-serif;
     max-height: none;
     margin-inline: auto;
   }
+
+  .checker-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .checker-intro {
+    max-width: none;
+  }
+
+  .checker-options {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 16px;
+  }
+  
 }
 
 /* =========================================================
