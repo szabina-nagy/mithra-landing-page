@@ -1,6 +1,6 @@
 # Mithra Landing Page
 
-A responsive marketing website for Mithra, a self initiated scam prevention product concept.
+A responsive marketing website for Mithra, a scam prevention product concept.
 
 Mithra originally began as a fully designed mobile app UX case study in Figma. This project extends that concept into a responsive coded landing page, with a focus on accessibility, responsive design and front end interaction.
 
@@ -108,6 +108,59 @@ The page was tested across a range of viewport sizes, including:
 Layouts adapt between mobile, tablet and desktop views.
 
 The hero, Scam Checker, feature cards and educational cards switch to stacked layouts where necessary to maintain readability and avoid cramped content.
+
+## Known Limitations
+
+- Scam detection is simulated using predefined warning patterns
+- The project does not use a backend or external fraud detection service
+- No user data is stored
+- The SOS Plan is presented as part of the wider product concept but is not implemented in this demonstration
+- Email, website link and phone number checker modes are visual only
+- There are no user accounts or authentication
+
+## Future Improvements
+
+Possible future improvements could include:
+
+- Connecting the Scam Checker to a real classification or fraud detection service
+- Expanding the SOS Plan flow
+- Supporting additional scam input types
+- Adding educational article filtering
+- Improving result explanations with more contextual guidance
+- Conducting additional usability testing
+
+## Design Process
+
+The interface was designed in Figma before development.
+
+The design work included:
+
+- Responsive mobile and desktop layouts
+- Reusable UI components
+- Form and button states
+- Scam Checker empty, loading, warning and lower risk states
+- Navigation states
+- Typography system
+- Colour system
+- Responsive spacing and layout rules
+
+The landing page builds on the original Mithra mobile app UX case study and translates the product concept into a responsive web experience.
+
+[View the original Mithra app UX case study](https://szabinanagy.com/p/mithra-app)
+
+## Screenshots
+
+### Desktop
+
+![Mithra desktop landing page](assets/readme/desktop.png)
+
+### Mobile
+
+![Mithra mobile landing page](assets/readme/mobile.png)
+
+### Scam Checker
+
+![Mithra Scam Checker result](assets/readme/scam-checker.png)
 
 ## Running the Project Locally
 
