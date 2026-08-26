@@ -1245,6 +1245,7 @@ font-family: "Josefin Sans", sans-serif;
 }
 
 
+
 /* =========================================================
    15. TABLET
    ========================================================= */
@@ -1292,7 +1293,49 @@ font-family: "Josefin Sans", sans-serif;
     justify-content: flex-start;
     gap: 12px 16px;
   }
-  
+/* FEATURES */
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 24px;
+  }
+
+  .feature-card + .feature-card::before {
+    top: 0;
+    bottom: auto;
+
+    left: 15%;
+    right: 15%;
+
+    width: auto;
+    height: 1px;
+  }
+
+
+  /* TACTICS */
+
+  .tactics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tactic-card {
+    padding: 24px;
+  }
+
+  .tactic-card + .tactic-card::before {
+    top: 0;
+    bottom: auto;
+
+    left: 15%;
+    right: 15%;
+
+    width: auto;
+    height: 1px;
+  }
+
 }
 
 /* =========================================================
