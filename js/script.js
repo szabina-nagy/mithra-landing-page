@@ -91,6 +91,17 @@ const warningPatterns = [
 checkerForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
+  if (checkerButton.dataset.mode === "reset") {
+    messageInput.value = "";
+    resultContainer.innerHTML = "";
+
+    checkerButton.textContent = "Check this message";
+    checkerButton.dataset.mode = "check";
+
+    messageInput.focus();
+    return;
+  }
+
   const message = messageInput.value.trim();
 
   if (!message) {
@@ -162,7 +173,8 @@ function showLoading() {
 function restoreCheckerButton() {
   checkerButton.disabled = false;
   checkerButton.classList.remove("is-loading");
-  checkerButton.innerHTML = "Check this message";
+  checkerButton.innerHTML = "Check another message";
+  checkerButton.dataset.mode = "reset";
 
   document.querySelector(".demo-note").classList.remove("is-hidden");
 }
