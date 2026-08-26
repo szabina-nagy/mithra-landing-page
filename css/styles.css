@@ -1258,6 +1258,25 @@ font-family: "Josefin Sans", sans-serif;
   .checker-options {
     flex-wrap: wrap;
   }
+  
+   .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .hero-image {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    width: min(100%, 560px);
+    max-height: none;
+    margin-inline: auto;
+  }
 }
 
 /* =========================================================
@@ -1523,7 +1542,7 @@ box-shadow: 0 0 32px rgba(0, 0, 0, 0.22);
 
   .hero-actions {
     width: 100%;
-    max-width: 330px;
+    max-width: none;
     gap: 12px;
   }
 
