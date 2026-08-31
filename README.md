@@ -8,7 +8,7 @@ Mithra originally began as a fully designed mobile app UX case study in Figma. T
 
 ## Live Site
 
-https://szabina-nagy.github.io/mithra-landing-page/
+https://szabina-nagy.github.io/mithra/
 
 ## Project Overview
 
